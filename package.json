@@ -1,0 +1,22 @@
+{
+  "name": "nosemi",
+  "version": "0.0.0",
+  "description": "delete semicolons",
+  "main": "index.js",
+  "scripts": {
+    "test": "tape test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Balou9/nosemi.git"
+  },
+  "keywords": [
+    "semicolon"
+  ],
+  "author": "Emmanuel Owosekun",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Balou9/nosemi/issues"
+  },
+  "homepage": "https://github.com/Balou9/nosemi#readme"
+}

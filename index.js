@@ -12,10 +12,8 @@ util.inherits(Nosemi, Transform)
 
 Nosemi.prototype._semiout = function semiout (n, chunk) {
   var buf = Buffer.alloc(n)
-  for (var i = 0; i < n; i++) {
-    var str = chunk[i]
-    buf[i] = (str.charCodeAt(0) === 59) ? undefined : chunk
-  }
+  for (var i = 0; i < n; i++)
+    buf[i] = (String.fromCharCode(chunk[i]) === ';') ? null : chunk[i]
   return buf
 }
 
@@ -25,5 +23,3 @@ Nosemi.prototype._transform = function (chunk, _, next) {
 }
 
 module.exports = Nosemi
-
-// one chunk at a time
