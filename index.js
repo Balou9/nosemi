@@ -1,7 +1,11 @@
 const { Transform } = require('stream')
 const util = require('util')
 
-const isSemiNewLine = require('./lib/is.js')
+const {
+  isSemiNewLine,
+  isNewLine,
+  isSpace
+} = require('./lib/is.js')
 
 function Nosemi(options) {
   if (!(this instanceof Nosemi)) {

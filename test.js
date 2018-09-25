@@ -1,6 +1,6 @@
 const tape = require('tape')
 const Nosemi = require('./index.js')
-const isSemiNewLine = require('./lib/is.js')
+const { isSemiNewLine } = require('./lib/is.js')
 const fs = require('fs')
 const rs = fs.createReadStream('./semi.js')
 
