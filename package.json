@@ -18,5 +18,12 @@
   "bugs": {
     "url": "https://github.com/Balou9/nosemi/issues"
   },
-  "homepage": "https://github.com/Balou9/nosemi#readme"
+  "homepage": "https://github.com/Balou9/nosemi#readme",
+  "devDependencies": {
+    "tape": "^4.9.1"
+  },
+  "dependencies": {
+    "commander": "^2.19.0",
+    "minimist": "^1.2.0"
+  }
 }
