@@ -17,6 +17,11 @@ Nosemi.prototype._transform = function (chunk, _, next) {
         String.fromCharCode(chunk[i-1]) === ';')
       chunk[i-1] = null
   }
+  for (var i = 0; i < chunk.length; i++) {
+    if (String.fromCharCode(chunk[i]) === '\r' &
+        String.fromCharCode(chunk[i-1]) === '\s')
+      chunk[i-1] = null
+  }
   this.push(chunk)
   next()
 }
