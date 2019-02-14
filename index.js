@@ -12,10 +12,8 @@ util.inherits(Nosemi, Transform)
 
 Nosemi.prototype._transform = function (chunk, _, next) {
   if (/;/.test(chunk)) {
-    for (var i = 0; i < chunk.length; i++)
-    if (String.fromCharCode(chunk[i]) === '\r' &
-        String.fromCharCode(chunk[i-1]) === ';')
-      chunk[i-1] = Buffer.from('')
+    var str = JSON.stringify(chunk).replace(/59,13/g, '13')
+    chunk = Buffer.from(JSON.parse(str))
   }
   this.push(chunk)
   next()
