@@ -4,7 +4,6 @@ const rs = fs.createReadStream('./semi.js')
 const nosemi = new Nosemi()
 const wstream = fs.createWriteStream('./nosemi.js')
 
-
 wstream.on('error', function (err) {
   console.error(err)
 })
