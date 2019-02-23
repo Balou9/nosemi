@@ -1,8 +1,8 @@
-const Nosemi = require('./index.js')
-const fs = require('fs')
-const rs = fs.createReadStream('./semi.js')
-const nosemi = new Nosemi()
-const wstream = fs.createWriteStream('./nosemi.js')
+var Nosemi = require('./index.js')
+var fs = require('fs')
+var rs = fs.createReadStream('./semi.js')
+var nosemi = new Nosemi()
+var wstream = fs.createWriteStream('./nosemi.js')
 
 wstream.on('error', function (err) {
   console.error(err)

@@ -1,11 +1,11 @@
-const tape = require('tape')
-const fs = require('fs')
+var tape = require('tape')
+var fs = require('fs')
 
 tape('nosemi - pass', function (t) {
-  const Nosemi = require('./index.js')
-  const nosemi = new Nosemi()
-  const rs = fs.createReadStream('./semi.js')
-  const ws = fs.createWriteStream('./nosemi.js')
+  var Nosemi = require('./index.js')
+  var nosemi = new Nosemi()
+  var rs = fs.createReadStream('./semi.js')
+  var ws = fs.createWriteStream('./nosemi.js')
 
   function isTrue (arr) {
     return arr.every(function (cur) {
@@ -47,7 +47,7 @@ tape('nosemi - pass', function (t) {
     })
   })
 
-  rs.pipe(nosemi).pipe(ws)
+  t.true(rs.pipe(nosemi).pipe(ws))
 
   t.end()
 })

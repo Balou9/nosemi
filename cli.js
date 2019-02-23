@@ -1,19 +1,21 @@
-const program = require('commander')
-const fs = require('fs')
-const args = require('minimist')(process.argv.slice(3))
-const Nosemi = require('./index.js')
-const nosemi = new Nosemi()
-const rs = fs.createReadStream('./' + args._[0])
-const ws = fs.createWriteStream('./' + args._[1])
+var program = require('commander')
+var fs = require('fs')
+var args = require('minimist')(process.argv.slice(3))
+var Nosemi = require('./index.js')
 
 program
   .version('0.0.0')
   .description('Nosemi')
 
 program
-  .command('nosemi <file> <file2w>')
+  .command('nosemi <file> [file2w]')
   .description('Write file with no semis at the end of the line')
-  .action(function () {
+  .action(function (file, file2w) {
+
+  if (!file2w) file2w = 'nosemi_' + args._[0]
+  var rs = fs.createReadStream(file)
+  var ws = fs.createWriteStream(file2w)
+  var nosemi = new Nosemi()
 
   ws.on('error', function (err) {
     console.error(err)
@@ -24,6 +26,7 @@ program
   })
 
   rs.pipe(nosemi).pipe(ws)
-  console.log(args)
 
   })
+
+program.parse(process.argv)
